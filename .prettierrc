@@ -13,6 +13,6 @@
             "options": { "parser": "svelte", "tabWidth": 2 }
         },
 
-        { "file": "*.scss", "options": { "tabWidth": 2 } }
+        { "files": "*.scss", "options": { "tabWidth": 2 } }
     ]
 }
