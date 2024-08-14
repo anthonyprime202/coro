@@ -74,7 +74,7 @@ pnpm run dev --open
 # Routing
 
 ```
-- / 
+/ 
     collections
     collection/
         [id]
@@ -91,3 +91,7 @@ pnpm run dev --open
         login
         signup
 ```
+
+# Todo
+
+Everything
