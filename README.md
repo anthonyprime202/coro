@@ -75,19 +75,19 @@ pnpm run dev --open
 
 ```
 - / 
-    - collections
-    - collection/
-        - [id]
-    - product/
-        - [id]
-    - info/
-        - terms-and-conditions
-        - privicy-policy
-        - about-us
-        - refund-policy
-    - account/
-        - profile
-    - auth/
-        - login
-        - signup
+    collections
+    collection/
+        [id]
+    product/
+        [id]
+    info/
+        terms-and-conditions
+        privicy-policy
+        about-us
+        refund-policy
+    account/
+        profile
+    auth/
+        login
+        signup
 ```
