@@ -43,6 +43,24 @@ pnpm run migrate
 pnpm run dev --open
 ```
 
+# Collection and Event System
+
+## Core concept
+
+- In coro, products are sold in collections. Each collection has a unique theme to it.
+
+- Products are sold only when their respective collection is airing in an event.
+
+- Each event has can be divided into the following parts
+    **Teaser**
+    > In this phase no products are revealed. It just has a banner that acts as a teaser for the upcoming collection event
+    **Pre-Order**(Optional)
+    > In this phase the items are visible and the customers can order the items, though they can't use any coupons in this phase and the delivery won't start till the next phase
+    **Sale**
+    > In this phase the normal purchases can happen, and the orders are shipped same day
+    **Ending**
+    > In this phase the Items are no more in sale, and the total no. of sales are shown as a highlight
+
 # Auth integration with supabase setup
 
 ## hooks.server.ts 
@@ -94,4 +112,3 @@ pnpm run dev --open
 
 # Todo
 
-Everything
