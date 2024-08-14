@@ -1,38 +1,28 @@
-# create-svelte
+# How authentication with supabase has been setup
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## hooks.server.ts 
+- This file gives a supabase server-side client, session data to the entire event
+    - The client created is specific to this server request
+- And has a authGuard that gives a session and a user to the entire event and redirects
+    - auth -> account : When the user is logged in
+    - account -> auth : When user is not logged in 
 
-## Creating a project
+## layout.server.ts
+- Gives passes the session local and cookies as data 
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Why is the session object passed when it is going to be overlapped by the session object in `layout.ts`?
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+> This is basically for server side rendering purposes (Still not clear though)
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
-## Developing
+## layout.ts 
+- Checks whether the code is running on client or server, and creates a supabase client respectively
+- Also creates a new session and user object and passes that to the data
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Why a new server side client create instead of just using the one passed in by the handle hook?
 
-```bash
-npm run dev
+> The new client can be used throughout the files for realtime and storage related stuff too, wherease the hooks' client is for validation for auth purposes only (Can get a better explaination) 
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## layout.svelte 
+- On any change in authentication state checks whether the user is logged in or not
+- Therefore invalidating `layout.ts` auth data when needed
